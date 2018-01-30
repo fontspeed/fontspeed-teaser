@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fontspeed</title>
+    <style>
+      html {
+        padding: 0 4vw;
+        font-family: sans-serif;
+        background-color: #222;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+
+      .fontspeed-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        z-index: 1;
+      }
+      .fontspeed-title svg {
+        vertical-align: top;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      .fontspeed-title svg path {
+        fill: rgba(255,255,255,.8);
+        stroke: rgba(0,0,0,.5);
+        stroke-width: .2px;
+      }
+      .fontspeed-title svg ~ svg {
+        display: none;
+      }
+      /*.fontspeed-title svg:hover {
+        display: none;
+      }
+      .fontspeed-title svg:hover ~ svg {
+        display: block;
+      }*/
+      .fontspeed-subtitle {
+        font-style: italic;
+        color: rgba(255,255,255,.9);
+        font-size: 1.125em; /* 18px /16 */
+      }
+
+      .fontspeed-bg-gradient {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: url(assets/img/ali-gooya-527606-2000.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .fontspeed-bg-gradient:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: .35;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(to right, #ffbc00 0%, #05b7ff 100%);
+      }
+
+      .fontspeed-bg-cite {
+        font-size: 0.75em; /* 12px /16 */
+      }
+      .fontspeed-bg-cite,
+      .fontspeed-bg-cite a[href],
+      .fontspeed-bg-cite a[href]:visited {
+        color: #fff;
+      }
+
+      h1 {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+      }
+
+      main {
+        position: absolute;
+        width: 100%;
+        bottom: .5em;
+        left: 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fontspeed-title">
+      <h1>fontspeed</h1>
+      {%- for word in fontpaths.svgs %}
+        {{ word | safe }}
+      {%- endfor %}
+    </div>
+    <div class="fontspeed-bg-gradient"></div>
+    <main>
+      <h2 class="fontspeed-subtitle">A faster way to load web fonts.</h2>
+      <p class="fontspeed-bg-cite">Photo by <a href="https://unsplash.com/photos/3yIBNntfdXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ali Gooya</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </main>
+  </body>
+</html>

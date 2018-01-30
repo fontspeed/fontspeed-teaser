@@ -1,0 +1,22 @@
+{
+  "name": "fontspeed-teaser",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "pathdata": "node src/pathdata.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zachleatherman@gmail.com",
+    "url": "https://zachleat.com/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "opentype.js": "^0.7.3",
+    "pify": "^3.0.0"
+  }
+}
