@@ -19,34 +19,52 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 85vh;
         position: relative;
         z-index: 1;
       }
       .fontspeed-title svg {
-        vertical-align: top;
         width: 100%;
         height: auto;
         margin: 0 auto;
-      }
-      .fontspeed-title svg path {
-        fill: rgba(255,255,255,.8);
-        stroke: rgba(0,0,0,.5);
-        stroke-width: .2px;
+        max-width: 100em; /* 1600px /16 */
       }
       .fontspeed-title svg ~ svg {
         display: none;
       }
-      /*.fontspeed-title svg:hover {
-        display: none;
+      .fontspeed-title path {
+        fill: rgba(255,255,255,.85);
+        stroke: rgba(0,0,0,.3);
+        stroke-width: .3px;
+        transition: .3s fill;
       }
-      .fontspeed-title svg:hover ~ svg {
-        display: block;
-      }*/
+      .fontspeed-title path:hover {
+        fill: rgba(255,255,255,.95);
+        stroke: rgba(0,0,0,.5);
+      }
+      .js-loaded .fontspeed-title path:hover {
+        cursor: pointer;
+      }
       .fontspeed-subtitle {
         font-style: italic;
         color: rgba(255,255,255,.9);
         font-size: 1.125em; /* 18px /16 */
+        text-shadow: 0 0 3px rgba(0,0,0,.35);
+      }
+      .fontspeed-subtitle-construction {
+        display: block;
+        font-style: normal;
+        color: #f3d600;
+        text-shadow: 0 0 3px rgba(0,0,0,.8);
+        line-height: 1.8;
+      }
+      .fontspeed-bg-cite {
+        font-size: 0.75em; /* 12px /16 */
+      }
+      .fontspeed-bg-cite,
+      .fontspeed-bg-cite a[href],
+      .fontspeed-bg-cite a[href]:visited {
+        color: #fff;
       }
 
       .fontspeed-bg-gradient {
@@ -56,9 +74,24 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: url(assets/img/ali-gooya-527606-2000.jpg);
+        background-image: url(assets/img/ali-gooya-527606-768.jpg);
         background-size: cover;
         background-repeat: no-repeat;
+      }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .fontspeed-bg-gradient {
+          background-image: url(assets/img/ali-gooya-527606-1024.jpg);
+        }
+      }
+      @media (min-height: 42.6875em) { /* 683px */
+        .fontspeed-bg-gradient {
+          background-image: url(assets/img/ali-gooya-527606-1024.jpg);
+        }
+      }
+      @media (min-height: 42.6875em) and (-webkit-min-device-pixel-ratio: 2), (min-height: 42.6875em) and (min-resolution: 192dpi) {
+        .fontspeed-bg-gradient {
+          background-image: url(assets/img/ali-gooya-527606-2048.jpg);
+        }
       }
       .fontspeed-bg-gradient:before {
         content: "";
@@ -69,18 +102,9 @@
         width: 100%;
         height: 100%;
         z-index: 0;
-        opacity: .35;
+        opacity: .3;
         background-repeat: no-repeat;
         background-image: linear-gradient(to right, #ffbc00 0%, #05b7ff 100%);
-      }
-
-      .fontspeed-bg-cite {
-        font-size: 0.75em; /* 12px /16 */
-      }
-      .fontspeed-bg-cite,
-      .fontspeed-bg-cite a[href],
-      .fontspeed-bg-cite a[href]:visited {
-        color: #fff;
       }
 
       h1 {
@@ -109,8 +133,23 @@
     </div>
     <div class="fontspeed-bg-gradient"></div>
     <main>
-      <h2 class="fontspeed-subtitle">A faster way to load web fonts.</h2>
+      <h2 class="fontspeed-subtitle"><span class="fontspeed-subtitle-construction">🚧 Under Construction 🚧</span> A faster way to load web fonts.</h2>
       <p class="fontspeed-bg-cite">Photo by <a href="https://unsplash.com/photos/3yIBNntfdXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ali Gooya</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
     </main>
+    <script>
+    {% include "loadjs.min.js" %}
+
+    document.documentElement.className += " js";
+
+    // Cut the mustard
+    if( "from" in Array && "matchMedia" in window ) {
+      // Don’t load the animation JS if Reduce Motion preference is enabled.
+      // https://css-tricks.com/introduction-reduced-motion-media-query/
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if( reduceMotion.matches !== true ) {
+        loadJS("assets/js/all.js");
+      }
+    }
+    </script>
   </body>
 </html>

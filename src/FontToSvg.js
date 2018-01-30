@@ -5,8 +5,8 @@ const opentype = require("opentype.js");
 class FontToSvg {
   constructor(id, str) {
     this.id = id;
-    this.str = 'font speed' || str;
-    this.fontSize = 72;
+    this.str = 'fontspeed' || str;
+    this.fontSize = 144;
   }
 
   setFontSize(fontsize) {
@@ -54,7 +54,7 @@ class FontToSvg {
       viewBox.height = Math.max(Math.abs(box.y2 - box.y1), viewBox.height);
     }.bind(this));
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="${this.id}" width="${viewBox.width}" height="${viewBox.height}" preserveAspectRatio="xMidYMid" viewBox="${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}">${paths.join("\n")}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="${this.id}" width="${viewBox.width}" height="${viewBox.height}" preserveAspectRatio="xMidYMid" viewBox="${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}" shape-rendering="geometricPrecision">${paths.join("\n")}</svg>`;
   }
 }
 
