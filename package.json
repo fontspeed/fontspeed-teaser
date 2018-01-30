@@ -15,6 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@11ty/eleventy": "^0.2.13",
     "fs-extra": "^5.0.0",
     "opentype.js": "^0.7.3",
     "pify": "^3.0.0"
