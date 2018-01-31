@@ -17,6 +17,11 @@
       body {
         margin: 0;
       }
+      body,
+      a[href],
+      a[href]:visited {
+        color: #fff;
+      }
 
       .fontspeed-title {
         display: flex;
@@ -56,6 +61,7 @@
         cursor: pointer;
       }
       .fontspeed-subtitle {
+        padding: 0 2vw;
         font-style: italic;
         color: rgba(255,255,255,.9);
         font-size: 1.125em; /* 18px /16 */
@@ -68,18 +74,17 @@
         text-shadow: 0 0 3px rgba(0,0,0,.8);
         margin-right: 1em;
       }
-      @media (min-width: 34.375em) { /* 550px */
+      @media (min-width: 48em) { /* 768px */
         .fontspeed-subtitle-construction {
           display: inline;
         }
       }
+      .fontspeed-via {
+        text-decoration: none;
+        font-weight: 400;
+      }
       .fontspeed-bg-cite {
         font-size: 0.75em; /* 12px /16 */
-      }
-      .fontspeed-bg-cite,
-      .fontspeed-bg-cite a[href],
-      .fontspeed-bg-cite a[href]:visited {
-        color: #fff;
       }
       .fontspeed-footer {
         position: absolute;
@@ -88,8 +93,6 @@
         left: 0;
         text-align: center;
       }
-
-
       .fontspeed-bg-gradient {
         position: absolute;
         left: 0;
@@ -140,6 +143,14 @@
         text-align: center;
         z-index: 2;
         text-shadow: 0 0 3px rgba(0,0,0,.8);
+      }
+      @media (max-height: 530px) {
+        .fontspeed-form {
+          padding: 1em;
+          top: 45%;
+          transform: translateY(-50%);
+          background-color: rgba(0,0,0,.6);
+        }
       }
       .fontspeed-form-label {
         display: block;
@@ -218,8 +229,11 @@
         <input type="submit" value="Subscribe" class="fontspeed-form-btn" />
       </form>
       <footer class="fontspeed-footer">
-        <h2 class="fontspeed-subtitle"><span class="fontspeed-subtitle-construction">🚧 Under Construction 🚧</span> A faster way to load web fonts.</h2>
-        <p class="fontspeed-bg-cite"><a href="https://buttondown.email" target="_blank">Newsletter powered by Buttondown</a> Photo by <a href="https://unsplash.com/photos/3yIBNntfdXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ali Gooya</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+        <h2 class="fontspeed-subtitle"><span class="fontspeed-subtitle-construction">🚧 Under Construction 🚧</span> A faster way to load web fonts, created by <a href="https://twitter.com/zachleat/" class="fontspeed-via">@zachleat</a></h2>
+        <p class="fontspeed-bg-cite">
+          <a href="https://buttondown.email" target="_blank">Newsletter powered by Buttondown</a>
+          Photo by <a href="https://unsplash.com/photos/3yIBNntfdXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ali Gooya</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
       </footer>
     </main>
     <script>
